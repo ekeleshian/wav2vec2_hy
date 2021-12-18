@@ -1,6 +1,6 @@
 # Training an Armenian Wav2Vec2 Model (baseline)
 
-*Important note: This generates just a baseline model, meaning it transforms the data into the appropriate format for wav2vec2 and sets the proper configs for GPU compatibility. Basically, baseline means the code works and moreover the code works on a high compute machine.  Optimizations around the data preparation and hyperparams for training are not included, which is noted in the TODO section.*
+*Important note: This generates just a baseline model, meaning it transforms the data into the appropriate format for wav2vec2 and sets the proper configs for GPU compatibility. Basically, baseline means the code works and moreover the code works on a high compute machine.  Optimizations around the data preparation and hyperparams for training are not included.*
 
 ### Prerequisites
 * Download the armenian dataset from [commonvoice](https://commonvoice.mozilla.org/en/datasets)
@@ -32,3 +32,4 @@ python train.py
 ```
 
 5.  [TBD] [##TODO] [##WIP] Evaluate the test set. 
+
