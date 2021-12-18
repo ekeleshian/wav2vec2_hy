@@ -23,7 +23,8 @@ cat requirements.txt | xargs -n 1 -L 1 pip install
 ```bash
 python prepare_dataset_hy.py
 ```
-	- A few files will be written to disk once this code is done running, notably the pickled files which will be needed for training: `prepared_test_hy.pkl`, `prepared_train_hy.pkl`, `processor_hy.pkl`.  
+
+* A few files will be written to disk once this code is done running, notably the pickled files which will be needed for training: `prepared_test_hy.pkl`, `prepared_train_hy.pkl`, `processor_hy.pkl`.  
 
 4.  Train the data, i.e. run the following command: 
 ```bash
