@@ -43,7 +43,8 @@ python train.py
 
 Training Results for Baseline:
 ```
-{'eval_loss': 1.0382163524627686, 'eval_wer': 0.7918918918918919, 'eval_runtime': 11.7239, 'eval_samples_per_second': 8.444, 'epoch': 42.0}
+{'eval_loss': 1.0382163524627686, 'eval_wer': 0.7918918918918919, 
+ 'eval_runtime': 11.7239, 'eval_samples_per_second': 8.444, 'epoch': 42.0}
 ```
 
 
