@@ -4,7 +4,7 @@ import numpy as np
 from datasets import load_metric
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Union
-from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor, TrainingArguments, Trainer
+from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor, TrainingArguments, Trainer, EarlyStoppingCallback
 
 
 @dataclass
@@ -108,8 +108,8 @@ if __name__ == "__main__":
         output_dir="./wav2vec2-base-hy",
         group_by_length=True,
         per_device_train_batch_size=4,
-        evaluation_strategy="steps",
-        num_train_epochs=30,
+        evaluation_strategy="epoch",
+        num_train_epochs=200,
         fp16=True,
         save_steps=500,
         eval_steps=500,
@@ -118,6 +118,8 @@ if __name__ == "__main__":
         weight_decay=0.005,
         warmup_steps=1000,
         save_total_limit=2,
+        load_best_model_at_end=True,
+        metric_for_best_model='eval_loss'
     )
 
     trainer = Trainer(
@@ -128,6 +130,7 @@ if __name__ == "__main__":
         train_dataset=prepared_train,
         eval_dataset=prepared_test,
         tokenizer=processor.feature_extractor,
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=10)]
     )
 
     trainer.train()

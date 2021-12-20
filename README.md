@@ -16,7 +16,14 @@
 cat requirements.txt | xargs -n 1 -L 1 pip install 
 ```
 
-2. Download the [Armenian Common Voice dataset](https://commonvoice.mozilla.org/en/datasets) and move the unzipped folder to the root of repo.
+2. Download the [Armenian Common Voice dataset](https://commonvoice.mozilla.org/en/datasets) and move the unzipped folder to the root of repo. In addition, create the following dirs from the root of the project's repo:
+```bash
+mkdir cv-corpus-7.0-2021-07-21/hy-AM/wav_clips_32/
+```
+
+```bash
+cv-corpus-7.0-2021-07-21/hy-AM/wav_clips_16/
+```
  
 
 3.  Prepare the dataset to make it compatible with the kind of input wav2vec2 expects.  This means to downsample the audio files to a sampling rate of 16000, tokenize the text, normalize the speech vectors, i.e. run the following command:
@@ -32,4 +39,14 @@ python train.py
 ```
 
 5.  [TBD] [##TODO] [##WIP] Evaluate the test set. 
+
+
+Training Results for Baseline:
+```
+{'eval_loss': 1.0382163524627686, 'eval_wer': 0.7918918918918919, 'eval_runtime': 11.7239, 'eval_samples_per_second': 8.444, 'epoch': 42.0}
+```
+
+
+
+
 
